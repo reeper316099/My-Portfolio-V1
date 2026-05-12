@@ -1,6 +1,7 @@
 import React from "react";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import EmailIcon from '@mui/icons-material/Email';
+import DownloadIcon from '@mui/icons-material/Download';
+import Button from '@mui/material/Button';
 import '../assets/styles/Main.scss';
 
 function Main() {
@@ -8,20 +9,31 @@ function Main() {
   return (
     <div className="container">
       <div className="about-section">
-        <div className="image-wrapper">
-          <img src="https://my-aws-assets.s3.us-west-2.amazonaws.com/portfolio-img/avatar_circle.jpeg" alt="Avatar" />
-        </div>
         <div className="content">
           <div className="social_icons">
-            <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+            <a href="mailto:ben_luck@icloud.com" aria-label="Email"><EmailIcon/></a>
           </div>
-          <h1>Yuji Sato</h1>
-          <p>Full Stack Engineer</p>
-
+          <h1>Benjamin James Luck</h1>
+          <p>Pre-med Student &middot; Healthcare &amp; Research</p>
+          <p className="bio-text">
+            High school senior pursuing pre-med at La Salle College Preparatory through the Carlow Center
+            for Medical Innovation pathway. I have built hands-on clinical experience through hospital
+            volunteering, orthopaedic research, and medical simulation — and I am passionate about making
+            medicine more accessible and understandable for people of all ages.
+          </p>
+          <div className="resume-btn-wrapper">
+            <Button
+              variant="contained"
+              href="./resume.pdf"
+              download
+              startIcon={<DownloadIcon />}
+              sx={{ marginTop: '24px', backgroundColor: '#5000ca', '&:hover': { backgroundColor: '#6a00ff' } }}
+            >
+              Download Resume
+            </Button>
+          </div>
           <div className="mobile_social_icons">
-            <a href="https://github.com/yujisatojr" target="_blank" rel="noreferrer"><GitHubIcon/></a>
-            <a href="https://www.linkedin.com/in/yujisato/" target="_blank" rel="noreferrer"><LinkedInIcon/></a>
+            <a href="mailto:ben_luck@icloud.com" aria-label="Email"><EmailIcon/></a>
           </div>
         </div>
       </div>

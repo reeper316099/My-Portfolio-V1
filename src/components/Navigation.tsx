@@ -6,6 +6,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
+import DownloadIcon from '@mui/icons-material/Download';
 import IconButton from '@mui/material/IconButton';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import List from '@mui/material/List';
@@ -17,7 +18,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 
 const drawerWidth = 240;
-const navItems = [['Expertise', 'expertise'], ['History', 'history'], ['Projects', 'projects'], ['Contact', 'contact']];
+const navItems = [['Skills', 'expertise'], ['Experience', 'history'], ['Activities', 'projects'], ['Contact', 'contact']];
 
 function Navigation({parentToChild, modeChange}: any) {
 
@@ -47,13 +48,9 @@ function Navigation({parentToChild, modeChange}: any) {
   }, []);
 
   const scrollToSection = (section: string) => {
-    console.log(section)
-    const expertiseElement = document.getElementById(section);
-    if (expertiseElement) {
-      expertiseElement.scrollIntoView({ behavior: 'smooth' });
-      console.log('Scrolling to:', expertiseElement);  // Debugging: Ensure the element is found
-    } else {
-      console.error('Element with id "expertise" not found');  // Debugging: Log error if element is not found
+    const el = document.getElementById(section);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -69,6 +66,11 @@ function Navigation({parentToChild, modeChange}: any) {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <ListItemButton component="a" href="./resume.pdf" download sx={{ textAlign: 'center' }}>
+            <ListItemText primary="Download Resume" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -92,12 +94,23 @@ function Navigation({parentToChild, modeChange}: any) {
           ) : (
             <DarkModeIcon onClick={() => modeChange()}/>
           )}
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+          <Box sx={{ display: { xs: 'none', sm: 'block' }, flexGrow: 1 }}>
             {navItems.map((item) => (
               <Button key={item[0]} onClick={() => scrollToSection(item[1])} sx={{ color: '#fff' }}>
                 {item[0]}
               </Button>
             ))}
+          </Box>
+          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
+            <Button
+              variant="outlined"
+              href="./resume.pdf"
+              download
+              startIcon={<DownloadIcon />}
+              sx={{ color: '#fff', borderColor: 'rgba(255,255,255,0.6)', '&:hover': { borderColor: '#fff', backgroundColor: 'rgba(255,255,255,0.1)' } }}
+            >
+              Resume
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
@@ -107,7 +120,7 @@ function Navigation({parentToChild, modeChange}: any) {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
