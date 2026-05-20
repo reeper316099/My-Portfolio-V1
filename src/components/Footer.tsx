@@ -1,14 +1,14 @@
 import React from "react";
-import EmailIcon from '@mui/icons-material/Email';
-import '../assets/styles/Footer.scss'
+import GitHubIcon from '@mui/icons-material/GitHub';
+import '../assets/styles/Footer.scss';
 
 function Footer() {
   return (
     <footer>
-      <div>
-        <a href="mailto:ben_luck@icloud.com" aria-label="Email"><EmailIcon/></a>
+      <div className="social_icons">
+        <a href="https://github.com/reeper316099" target="_blank" rel="noreferrer"><GitHubIcon/></a>
       </div>
-      <p>Benjamin James Luck &middot; Altadena, CA &middot; <a href="mailto:ben_luck@icloud.com">ben_luck@icloud.com</a></p>
+      <p>A portfolio by <a href="https://github.com/reeper316099/My-Portfolio-V1" target="_blank" rel="noreferrer">Benjamin James Luck</a></p>
     </footer>
   );
 }

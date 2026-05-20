@@ -1,58 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap');
+
+$matrix-green: #00ff41;
+$dark-bg: #0d0208;
+$neon-cyan: #00ffff;
+$neon-magenta: #ff00ff;
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Source Code Pro', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 1.1rem !important;
+  background-color: $dark-bg;
+  color: $matrix-green;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace !important;
+  font-family: 'Source Code Pro', monospace !important;
   font-size: 1rem !important;
 }
 
 .main-container {
   position: relative;
-  background-color: #0d1116;
-
+  background-color: $dark-bg;
 }
 
 a {
   text-decoration: none;
-}
+  color: $matrix-green;
+  transition: all 0.3s ease;
 
-a:hover {
-  color: #5000ca;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  &:hover {
+    color: $neon-cyan;
+    text-shadow: 0 0 8px $neon-cyan;
+  }
 }
 
 p, a, h1, h2, h3, h4, h5, label, button {
-  color: white;
-  font-family: "Lato", sans-serif;
+  color: $matrix-green;
+  font-family: 'Source Code Pro', monospace;
+}
+
+h1, h2, h3 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 5px $matrix-green;
 }
 
 .navigation-bar {
   justify-content: space-between;
-  background-color: #0d1116;
+  background-color: rgba($dark-bg, 0.8) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba($matrix-green, 0.3);
 
   button {
     font-size: 1.1rem;
-    font-family: "Lato", sans-serif;
+    font-family: 'Source Code Pro', monospace;
     text-transform: initial;
     padding: 6px 10px;
+    color: $matrix-green !important;
+
+    &:hover {
+        color: $neon-cyan !important;
+        text-shadow: 0 0 5px $neon-cyan;
+    }
   }
 
   svg {
     cursor: pointer;
+    color: $matrix-green;
   }
 }
 
 .navigation-bar-responsive {
+    background-color: $dark-bg;
   span, p {
-    color: #0d1116;
-    font-family: "Lato", sans-serif;
+    color: $matrix-green;
+    font-family: 'Source Code Pro', monospace;
   }
 }
 
@@ -65,25 +89,6 @@ p, a, h1, h2, h3, h4, h5, label, button {
   justify-content: center;
 }
 
-.header-image {
-  width: 100%;
-  height: 450px;
-
-  img {
-    width: 100%;
-    height: 450px;
-    object-fit: cover;
-  }
-}
-
-.mobile-menu-top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
-  font-weight: bold;
-}
-
 .items-container {
   padding: 5% 10%;
   text-align: left;
@@ -92,58 +97,70 @@ p, a, h1, h2, h3, h4, h5, label, button {
   justify-content: center;
 }
 
+/* Cyber Animations */
+@keyframes flicker {
+  0% { opacity: 0.8; }
+  5% { opacity: 0.9; }
+  10% { opacity: 0.8; }
+  15% { opacity: 1; }
+  25% { opacity: 0.8; }
+  30% { opacity: 1; }
+  70% { opacity: 0.9; }
+  72% { opacity: 0.8; }
+  77% { opacity: 0.9; }
+  100% { opacity: 0.8; }
+}
+
+@keyframes scanline {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+.main-container::before {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2000;
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+.scanline {
+  width: 100%;
+  height: 100px;
+  z-index: 2001;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba($matrix-green, 0.1) 50%, rgba(0, 0, 0, 0) 100%);
+  opacity: 0.1;
+  position: fixed;
+  pointer-events: none;
+  animation: scanline 10s linear infinite;
+}
+
+.main-container::after {
+  content: " ";
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 2000;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
+
+/* Light mode override - disabling it for Cyber theme or making it "High Contrast" */
 .light-mode {
-  background-color: #f8f9fa;
-
-  .navigation-bar {
-    background-color: #f8f9fa;
-  }
-
-  p, a, h1, h2, h3, h4, h5, label, button {
-    color: #0d1116;
-  }
-
-  a:hover {
-    color: #5000ca;
-    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
-  }
-
-  .navigation-bar svg {
-    color: #0d1116;
-  }
-
-  .about-section {
-    background-image: url("./assets/images/bg-light.png");
-  }
-
-  .skills-container svg {
-    color: #0d1116;
-  }
-
-  .chip {
-    background-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  }
-
-  .vertical-timeline::before {
-    background-color: rgba(0, 0, 0, 0.08);
-  }
-
-  .vertical-timeline--animate .vertical-timeline-element-content.bounce-in {
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  }
-
-  .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
-    color: gray;
-  }
-
-  .vertical-timeline-element-content-arrow {
-    border-right: 7px solid rgba(0, 0, 0, 0.08) !important;
-  }
-
-  .flex-chips .chip-title {
-    color: #0d1116;
-  }
+  // We'll keep it dark for now as the user asked for a cyber theme
+  // or we could make it a "White Hat" theme (Light Gray/Cyan)
+  filter: invert(0);
 }
 
 @media screen {

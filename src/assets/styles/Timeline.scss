@@ -1,38 +1,99 @@
-.vertical-timeline span {
-    color: white;
-    font-family: 'Courier Prime', monospace;
+$matrix-green: #00ff41;
+$dark-bg: #0d0208;
+$neon-cyan: #00ffff;
+
+#history {
+    background-color: $dark-bg;
+    padding: 100px 0;
+
+    h1 {
+        text-align: center;
+        margin-bottom: 60px;
+        font-size: 3rem;
+        text-shadow: 0 0 10px $matrix-green;
+    }
 }
 
-.vertical-timeline p {
-    color: rgb(39, 40, 34);
+.vertical-timeline::before {
+    background: $matrix-green !important;
+    box-shadow: 0 0 10px $matrix-green;
 }
 
-.vertical-timeline-element p {
-    color: rgb(39, 40, 34);
+.vertical-timeline-element-content {
+    background: rgba($matrix-green, 0.03) !important;
+    border: 1px solid rgba($matrix-green, 0.2) !important;
+    box-shadow: none !important;
+    color: $matrix-green !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: $matrix-green !important;
+        background: rgba($matrix-green, 0.08) !important;
+        box-shadow: 0 0 15px rgba($matrix-green, 0.1) !important;
+    }
+
+    h3 {
+        color: $neon-cyan !important;
+        text-shadow: 0 0 5px $neon-cyan;
+        font-weight: bold;
+    }
+
+    h4 {
+        color: $matrix-green !important;
+        opacity: 0.9;
+        font-size: 1rem !important;
+        margin-top: 5px !important;
+    }
+
+    p {
+        color: $matrix-green !important;
+        opacity: 0.8;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        font-family: 'Source Code Pro', monospace !important;
+    }
+
+    .vertical-timeline-element-date {
+        color: $matrix-green !important;
+        font-family: 'Source Code Pro', monospace !important;
+        opacity: 1 !important;
+        font-weight: bold;
+        text-shadow: 0 0 5px $matrix-green;
+    }
 }
 
-.vertical-timeline-element h3 {
-    color: rgb(39, 40, 34);
+.vertical-timeline-element-content-arrow {
+    border-right: 7px solid rgba($matrix-green, 0.2) !important;
 }
 
-.vertical-timeline-element h4 {
-    color: rgb(39, 40, 34);
+.vertical-timeline-element-icon {
+    background: $dark-bg !important;
+    box-shadow: 0 0 0 4px $matrix-green, inset 0 2px 0 rgba(0,0,0,.08), 0 3px 0 4px rgba(0,0,0,.05) !important;
+
+    svg {
+        color: $matrix-green !important;
+        filter: drop-shadow(0 0 5px $matrix-green);
+    }
 }
 
-.vertical-timeline-element span {
-    color: rgb(39, 40, 34);
+@media only screen and (min-width: 1170px) {
+    .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+        left: 124% !important;
+        width: 100% !important;
+    }
+
+    .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even) .vertical-timeline-element-content .vertical-timeline-element-date {
+        right: 124% !important;
+        left: auto !important;
+        text-align: right !important;
+    }
 }
 
-.vertical-timeline-element .vertical-timeline-element-date {
-    color: white;
-}
-
-.svg-inline--fa {
-    color: white;
-}
-
-@media screen and (max-width: 1170px) {
-    .vertical-timeline-element .vertical-timeline-element-date {
-        color: rgb(39, 40, 34);
+@media only screen and (max-width: 1169px) {
+    .vertical-timeline-element-content .vertical-timeline-element-date {
+        color: $matrix-green !important;
+        margin-bottom: 10px;
+        display: block;
     }
 }
