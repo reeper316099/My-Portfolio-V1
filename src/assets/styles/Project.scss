@@ -1,12 +1,114 @@
-.projects-container .subsection-heading {
-    margin-top: 48px;
-    margin-bottom: 24px;
-    font-size: 1.5em;
-    opacity: 0.75;
+$matrix-green: #00ff41;
+$dark-bg: #0d0208;
+$neon-cyan: #00ffff;
+
+.projects-container {
+    padding: 100px 10%;
+    background-color: $dark-bg;
+    text-align: center;
+
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 50px;
+        text-shadow: 0 0 10px $matrix-green;
+    }
+
+    .subsection-heading {
+        margin-top: 80px;
+        margin-bottom: 40px;
+        font-size: 2rem;
+        color: $neon-cyan;
+        text-shadow: 0 0 5px $neon-cyan;
+        text-transform: uppercase;
+        border-bottom: 1px solid rgba($neon-cyan, 0.3);
+        display: inline-block;
+        padding-bottom: 10px;
+    }
 }
 
-.projects-container .project-role {
-    margin: 4px 0 8px;
-    font-size: 0.9em;
-    opacity: 0.8;
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 30px;
+    margin-top: 20px;
+}
+
+.project {
+    padding: 30px;
+    background: rgba($matrix-green, 0.02);
+    border: 1px solid rgba($matrix-green, 0.1);
+    border-radius: 4px;
+    text-align: left;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 0;
+        background: $matrix-green;
+        transition: all 0.3s ease;
+    }
+
+    &:hover {
+        background: rgba($matrix-green, 0.05);
+        border-color: rgba($matrix-green, 0.4);
+        transform: scale(1.02);
+        box-shadow: 0 0 15px rgba($matrix-green, 0.1);
+
+        &::before {
+            height: 100%;
+        }
+
+        h2 {
+            color: $neon-cyan;
+            text-shadow: 0 0 8px $neon-cyan;
+        }
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .project-role {
+        margin: 5px 0 15px;
+        font-size: 0.9rem;
+        color: $matrix-green;
+        opacity: 0.9;
+        font-family: 'Source Code Pro', monospace;
+
+        em {
+            font-style: normal;
+            &::before {
+                content: '[';
+                color: $neon-cyan;
+            }
+            &::after {
+                content: ']';
+                color: $neon-cyan;
+            }
+        }
+    }
+
+    p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        opacity: 0.7;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .projects-container {
+        padding: 60px 5%;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }
