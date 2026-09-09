@@ -61,10 +61,10 @@ function Timeline() {
             iconStyle={{ background: '#0d0208', color: '#00ff41' }}
             icon={<FontAwesomeIcon icon={faBriefcase} />}
           >
-            <h3 className="vertical-timeline-element-title">Assistant Trainer</h3>
+            <h3 className="vertical-timeline-element-title">BLS Certified</h3>
             <h4 className="vertical-timeline-element-subtitle">American Red Cross</h4>
             <p>
-              Supports BLS and CPR certification instruction. Holds Red Cross Basic Life Support (BLS) Certification.
+              Holds Red Cross Basic Life Support (BLS) Certification.
             </p>
           </VerticalTimelineElement>
 
