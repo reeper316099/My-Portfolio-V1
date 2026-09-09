@@ -16,8 +16,7 @@ function Main() {
           <h1>Benjamin James Luck</h1>
           <p>Pre-med Student | Healthcare &amp; Research</p>
           <div className="bio-text">
-            High school senior pursuing pre-med at La Salle College Preparatory through the Carlow Center
-            for Medical Innovation pathway. I have built hands-on clinical experience through hospital
+            College freshman pursuing pre-med at University of Utah. I have built hands-on clinical experience through hospital
             volunteering, orthopaedic research, and medical simulation — and I am passionate about making
             medicine more accessible and understandable for people of all ages.
           </div>
