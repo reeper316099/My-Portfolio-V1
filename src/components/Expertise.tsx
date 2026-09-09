@@ -65,7 +65,7 @@ function Expertise() {
                 <div className="skill">
                     <FontAwesomeIcon icon={faTrophy} size="3x"/>
                     <h3>Leadership &amp; Competitions</h3>
-                    <p>President of the STEM Honor Society chapter (elected 2025). Competed in the National Cyber League earning a Gold Award in Fall 2025, covering cryptography, forensics, network analysis, and web exploitation.</p>
+                    <p>President of the STEM Honor Society chapter (2025). Competed in the National Cyber League earning a Gold Award in Fall 2025, covering cryptography, forensics, network analysis, and web exploitation.</p>
                     <div className="flex-chips">
                         <span className="chip-title">Skills:</span>
                         {leadershipSkills.map((label, index) => (
